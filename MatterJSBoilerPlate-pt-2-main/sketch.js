@@ -24,19 +24,20 @@ function setup() {
 	var plane_options = {
 	isStatic:true
 	}
-	
-	rectMode(CENTER);
-	ellipseMode(RADIUS);
-	fill("red")
+
+
 	plane = Bodies.rectangle(700,700,10,10);
 	World.add(world, plane);
 	block1 = Bodies.rectangle(200,200,10,10);
 	World.add(world, block1);
 	block2 = Bodies.rectangle(600,600,10,10);
 	World.add(world, block2);
+	rectMode(CENTER);
+	ellipseMode(RADIUS);
+	fill("red")
 
-
-	Engine.update(engine);
+	
+	//Engine.update(engine);
 	var rotator_options = {
 		isStatic: true
 	}
@@ -62,13 +63,15 @@ function setup() {
 	World.add(world,particle4);
 
 
-  
+
+
 }
 
 
 function draw() {
   rectMode(CENTER);
   background("blue");
+  Engine.update(engine);
 
   Matter.Body.rotate(rotator1,angle1);
   push();
