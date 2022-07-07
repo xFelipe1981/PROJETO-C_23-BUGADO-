@@ -1,4 +1,3 @@
-
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -27,8 +26,9 @@ function setup() {
 	isStatic:true
 	}
 	
+	
 
-	plane = Bodies.rectangle(700,700,10,10);
+	plane = Bodies.rectangle(700,700,10,10,plane_options);
 	World.add(world, plane);
 	block1 = Bodies.rectangle(200,200,10,10);
 	World.add(world, block1);
@@ -42,12 +42,21 @@ function setup() {
 
 	//Engine.update(engine);
 	var rotator_options = {
-		isStatic: true
+		isStatic: false
+	}
+	var rotator2_options = {
+		isStatic: false
+	}
+	var rotator3_options = {
+		isStatic: false
+	}
+	var rotator4_options = {
+		isStatic: false
 	}
 	rotator1 = Bodies.rectangle(250,200,150,20,rotator_options)
-	rotator2 = Bodies.rectangle(300,200,150,20,rotator_options)
-	rotator3 = Bodies.rectangle(350,200,150,20,rotator_options)
-	rotator4 = Bodies.rectangle(450,200,150,20,rotator_options)
+	rotator2 = Bodies.rectangle(300,200,150,20,rotator2_options)
+	rotator3 = Bodies.rectangle(350,200,150,20,rotator3_options)
+	rotator4 = Bodies.rectangle(450,200,150,20,rotator4_options)
 	
 	var particle_options = {
 		restitution:0.4,
@@ -81,6 +90,18 @@ function draw() {
   rectMode(CENTER);
   background("blue");
   Engine.update(engine);
+
+  //crie forma de plano e suporte
+  rect(plane.position.x,plane.position.y,1200,20);
+  rect(block1.position.x,block1.position.y,150,20);
+  rect(block2.position.x,block2.position.y,150,20);
+
+  //crie forma para todas as partículas
+  ellipse(particle1.position.x,particle1.position.y,10);
+  ellipse(particle2.position.x,particle2.position.y,10);
+  ellipse(particle3.position.x,particle3.position.y,10);
+  ellipse(particle4.position.x,particle4.position.y,10);
+  ellipse(particle5.position.x,particle5.position.y,10);
  
   Matter.Body.rotate(rotator1,angle1);
   push();
@@ -121,6 +142,7 @@ function draw() {
   
   
 }
+
 
 
 
