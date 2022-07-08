@@ -1,7 +1,7 @@
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
-const Body = Matter.Body;
+//const Body = Matter.Body; não precisa disso
 var angle1=60;
 var angle2=60;
 var angle3=60;
@@ -35,28 +35,11 @@ function setup() {
 	block2 = Bodies.rectangle(600,600,10,10);
 	World.add(world, block2);
 
+    /* isso tá repetido muitas vezes, pode apagar
 	rectMode(CENTER);
 	ellipseMode(RADIUS);
 	fill("red")
-
-
-	//Engine.update(engine);
-	var rotator_options = {
-		isStatic: false
-	}
-	var rotator2_options = {
-		isStatic: false
-	}
-	var rotator3_options = {
-		isStatic: false
-	}
-	var rotator4_options = {
-		isStatic: false
-	}
-	rotator1 = Bodies.rectangle(250,200,150,20,rotator_options)
-	rotator2 = Bodies.rectangle(300,200,150,20,rotator2_options)
-	rotator3 = Bodies.rectangle(350,200,150,20,rotator3_options)
-	rotator4 = Bodies.rectangle(450,200,150,20,rotator4_options)
+    */
 	
 	var particle_options = {
 		restitution:0.4,
@@ -78,6 +61,28 @@ function setup() {
 	particle5 = Bodies.circle(580,10,10,particle_options);
 	World.add(world,particle5);
 
+    //Engine.update(engine);
+	var rotator_options = {
+		isStatic: false
+	}
+    /* só precisa de um options
+	var rotator2_options = {
+		isStatic: false
+	}
+	var rotator3_options = {
+		isStatic: false
+	}
+	var rotator4_options = {
+		isStatic: false
+	}
+    */
+    rotator1 = Bodies.rectangle(250,200,150,20,rotator_options)
+	//adicionar cada rotator ao mundo
+    World.add(world,rotator1);
+    rotator2 = Bodies.rectangle(300,200,150,20,rotator_options)
+	rotator3 = Bodies.rectangle(350,200,150,20,rotator_options)
+	rotator4 = Bodies.rectangle(450,200,150,20,rotator_options)
+	
 	rectMode(CENTER);
 	ellipseMode(RADIUS);
 	fill("red")
@@ -87,7 +92,7 @@ function setup() {
 
 
 function draw() {
-  rectMode(CENTER);
+  //rectMode(CENTER);ñ pode estar aqui
   background("blue");
   Engine.update(engine);
 
@@ -128,7 +133,7 @@ function draw() {
   pop();
   angle1 +=0.6
   
-
+/* não precisa dess, queremos ele imóvel
   Matter.Body.rotate(rotator4,angle2);
   push();
   translate(rotator4.position.x,rotator1.position.y);
@@ -136,12 +141,12 @@ function draw() {
   rect(0,0,150,20)
   pop();
   angle1 +=0.8
-  
+*/
 
-  drawSprites();
-  
-  
+  //drawSprites(); não temos spites, essa fu 
 }
+
+
 
 
 
